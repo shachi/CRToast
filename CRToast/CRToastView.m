@@ -193,7 +193,7 @@ static CGFloat CRCenterXForActivityIndicatorWithAlignment(CRToastAccessoryViewAl
         }
         CGFloat offset = (CGRectGetHeight(contentFrame) - (height + subtitleHeight))/2;
         if (CRGetStatusBarHeight() > 20) {
-            offset += 8;
+            offset += 4;
         }
         self.label.frame = CGRectMake(x,
                                       offset+statusBarYOffset,
