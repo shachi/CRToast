@@ -69,7 +69,7 @@ static CGFloat CRGetStatusBarHeightForOrientation(UIInterfaceOrientation orienta
 
 /// Get the width of the status bar for given orientation.
 static CGFloat CRGetStatusBarWidthForOrientation(UIInterfaceOrientation orientation) {
-    CGRect mainScreenBounds = [UIScreen mainScreen].bounds;
+    CGRect mainScreenBounds = [UIApplication sharedApplication].windows.firstObject.bounds;
 
     if (CRFrameAutoAdjustedForOrientation()) {
         return CGRectGetWidth(mainScreenBounds);
