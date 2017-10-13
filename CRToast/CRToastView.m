@@ -179,7 +179,6 @@ static CGFloat CRCenterXForActivityIndicatorWithAlignment(CRToastAccessoryViewAl
                                       statusBarYOffset,
                                       width,
                                       CGRectGetHeight(contentFrame));
-        NSLog(@"height %f", self.label.frame.size.height);
     } else {
         CGFloat height = MIN([self.toast.text boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
                                                            options:NSStringDrawingUsesLineFragmentOrigin
@@ -195,7 +194,8 @@ static CGFloat CRCenterXForActivityIndicatorWithAlignment(CRToastAccessoryViewAl
         }
         CGFloat offset = (CGRectGetHeight(contentFrame) - (height + subtitleHeight))/2;
         if (CRGetStatusBarHeight() > 20) {
-            offset += 4;
+            offset += 6;
+            NSLog(@"text offset %f", offset);
         }
         self.label.frame = CGRectMake(x,
                                       offset+statusBarYOffset,
