@@ -132,10 +132,11 @@ static CGFloat CRCenterXForActivityIndicatorWithAlignment(CRToastAccessoryViewAl
     CGFloat preferredPadding = self.toast.preferredPadding;
     
     CGFloat statusBarYOffset = self.toast.displayUnderStatusBar ? (CRGetStatusBarHeight()+CRStatusBarViewUnderStatusBarYOffsetAdjustment) : 0;
-    if (CRGetStatusBarHeight() > 20) {
-        statusBarYOffset += 28;
-    }
     contentFrame.size.height = CGRectGetHeight(contentFrame) - statusBarYOffset;
+    if (CRGetStatusBarHeight() > 20) {
+        statusBarYOffset += 24;
+        contentFrame.size.height -= 20;
+    }
     
     self.backgroundView.frame = self.bounds;
     
@@ -178,6 +179,7 @@ static CGFloat CRCenterXForActivityIndicatorWithAlignment(CRToastAccessoryViewAl
                                       statusBarYOffset,
                                       width,
                                       CGRectGetHeight(contentFrame));
+        NSLog(@"height %f", self.label.frame.size.height);
     } else {
         CGFloat height = MIN([self.toast.text boundingRectWithSize:CGSizeMake(width, MAXFLOAT)
                                                            options:NSStringDrawingUsesLineFragmentOrigin
